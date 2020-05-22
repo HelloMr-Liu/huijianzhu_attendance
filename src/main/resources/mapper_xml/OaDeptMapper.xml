@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huijianzhu.attendance.mapper.OaDeptMapper">
+  <resultMap id="BaseResultMap" type="com.huijianzhu.attendance.entity.OaDept">
+    <id column="dept_id" jdbcType="INTEGER" property="deptId" />
+    <result column="dept_no" jdbcType="VARCHAR" property="deptNo" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="dept_sort" jdbcType="INTEGER" property="deptSort" />
+    <result column="user_no_config" jdbcType="VARCHAR" property="userNoConfig" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_no" jdbcType="VARCHAR" property="updateUserNo" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+    <result column="extend4" jdbcType="VARCHAR" property="extend4" />
+    <result column="extend5" jdbcType="VARCHAR" property="extend5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dept_id, dept_no, dept_name, dept_sort, user_no_config, is_delete, create_time, update_time, 
+    update_user_no, update_user_name, extend1, extend2, extend3, extend4, extend5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from oa_dept
+    where dept_id = #{deptId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from oa_dept
+    where dept_id = #{deptId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.huijianzhu.attendance.entity.OaDept">
+    insert into oa_dept (dept_id, dept_no, dept_name, 
+      dept_sort, user_no_config, is_delete, 
+      create_time, update_time, update_user_no, 
+      update_user_name, extend1, extend2, 
+      extend3, extend4, extend5
+      )
+    values (#{deptId,jdbcType=INTEGER}, #{deptNo,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{deptSort,jdbcType=INTEGER}, #{userNoConfig,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUserNo,jdbcType=VARCHAR}, 
+      #{updateUserName,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, 
+      #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huijianzhu.attendance.entity.OaDept">
+    insert into oa_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptNo != null">
+        dept_no,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="deptSort != null">
+        dept_sort,
+      </if>
+      <if test="userNoConfig != null">
+        user_no_config,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="extend1 != null">
+        extend1,
+      </if>
+      <if test="extend2 != null">
+        extend2,
+      </if>
+      <if test="extend3 != null">
+        extend3,
+      </if>
+      <if test="extend4 != null">
+        extend4,
+      </if>
+      <if test="extend5 != null">
+        extend5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptSort != null">
+        #{deptSort,jdbcType=INTEGER},
+      </if>
+      <if test="userNoConfig != null">
+        #{userNoConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        #{extend5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huijianzhu.attendance.entity.OaDept">
+    update oa_dept
+    <set>
+      <if test="deptNo != null">
+        dept_no = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptSort != null">
+        dept_sort = #{deptSort,jdbcType=INTEGER},
+      </if>
+      <if test="userNoConfig != null">
+        user_no_config = #{userNoConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        extend3 = #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        extend4 = #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        extend5 = #{extend5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dept_id = #{deptId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huijianzhu.attendance.entity.OaDept">
+    update oa_dept
+    set dept_no = #{deptNo,jdbcType=VARCHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      dept_sort = #{deptSort,jdbcType=INTEGER},
+      user_no_config = #{userNoConfig,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR},
+      extend3 = #{extend3,jdbcType=VARCHAR},
+      extend4 = #{extend4,jdbcType=VARCHAR},
+      extend5 = #{extend5,jdbcType=VARCHAR}
+    where dept_id = #{deptId,jdbcType=INTEGER}
+  </update>
+</mapper>

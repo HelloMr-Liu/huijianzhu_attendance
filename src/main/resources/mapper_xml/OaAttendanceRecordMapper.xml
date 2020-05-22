@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huijianzhu.attendance.mapper.OaAttendanceRecordMapper">
+  <resultMap id="BaseResultMap" type="com.huijianzhu.attendance.entity.OaAttendanceRecord">
+    <id column="record_id" jdbcType="VARCHAR" property="recordId" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="clock_start_time" jdbcType="TIMESTAMP" property="clockStartTime" />
+    <result column="clock_end_time" jdbcType="TIMESTAMP" property="clockEndTime" />
+    <result column="result_id" jdbcType="VARCHAR" property="resultId" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_no" jdbcType="VARCHAR" property="updateUserNo" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+    <result column="extend4" jdbcType="VARCHAR" property="extend4" />
+    <result column="extend5" jdbcType="VARCHAR" property="extend5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    record_id, user_no, user_name, clock_start_time, clock_end_time, result_id, is_delete, 
+    create_time, update_time, update_user_no, update_user_name, extend1, extend2, extend3, 
+    extend4, extend5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from oa_attendance_record
+    where record_id = #{recordId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from oa_attendance_record
+    where record_id = #{recordId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huijianzhu.attendance.entity.OaAttendanceRecord">
+    insert into oa_attendance_record (record_id, user_no, user_name, 
+      clock_start_time, clock_end_time, result_id, 
+      is_delete, create_time, update_time, 
+      update_user_no, update_user_name, extend1, 
+      extend2, extend3, extend4, 
+      extend5)
+    values (#{recordId,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{clockStartTime,jdbcType=TIMESTAMP}, #{clockEndTime,jdbcType=TIMESTAMP}, #{resultId,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUserNo,jdbcType=VARCHAR}, #{updateUserName,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, 
+      #{extend2,jdbcType=VARCHAR}, #{extend3,jdbcType=VARCHAR}, #{extend4,jdbcType=VARCHAR}, 
+      #{extend5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huijianzhu.attendance.entity.OaAttendanceRecord">
+    insert into oa_attendance_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="clockStartTime != null">
+        clock_start_time,
+      </if>
+      <if test="clockEndTime != null">
+        clock_end_time,
+      </if>
+      <if test="resultId != null">
+        result_id,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="extend1 != null">
+        extend1,
+      </if>
+      <if test="extend2 != null">
+        extend2,
+      </if>
+      <if test="extend3 != null">
+        extend3,
+      </if>
+      <if test="extend4 != null">
+        extend4,
+      </if>
+      <if test="extend5 != null">
+        extend5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="clockStartTime != null">
+        #{clockStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clockEndTime != null">
+        #{clockEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resultId != null">
+        #{resultId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        #{extend5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huijianzhu.attendance.entity.OaAttendanceRecord">
+    update oa_attendance_record
+    <set>
+      <if test="userNo != null">
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="clockStartTime != null">
+        clock_start_time = #{clockStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clockEndTime != null">
+        clock_end_time = #{clockEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resultId != null">
+        result_id = #{resultId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        extend3 = #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        extend4 = #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        extend5 = #{extend5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huijianzhu.attendance.entity.OaAttendanceRecord">
+    update oa_attendance_record
+    set user_no = #{userNo,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      clock_start_time = #{clockStartTime,jdbcType=TIMESTAMP},
+      clock_end_time = #{clockEndTime,jdbcType=TIMESTAMP},
+      result_id = #{resultId,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR},
+      extend3 = #{extend3,jdbcType=VARCHAR},
+      extend4 = #{extend4,jdbcType=VARCHAR},
+      extend5 = #{extend5,jdbcType=VARCHAR}
+    where record_id = #{recordId,jdbcType=VARCHAR}
+  </update>
+</mapper>

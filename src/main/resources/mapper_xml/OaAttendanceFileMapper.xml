@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huijianzhu.attendance.mapper.OaAttendanceFileMapper">
+  <resultMap id="BaseResultMap" type="com.huijianzhu.attendance.entity.OaAttendanceFile">
+    <id column="file_id" jdbcType="VARCHAR" property="fileId" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="file_type" jdbcType="VARCHAR" property="fileType" />
+    <result column="base_data" jdbcType="VARCHAR" property="baseData" />
+    <result column="uniqueness_id" jdbcType="VARCHAR" property="uniquenessId" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user_no" jdbcType="VARCHAR" property="updateUserNo" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="extend1" jdbcType="VARCHAR" property="extend1" />
+    <result column="extend2" jdbcType="VARCHAR" property="extend2" />
+    <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+    <result column="extend4" jdbcType="VARCHAR" property="extend4" />
+    <result column="extend5" jdbcType="VARCHAR" property="extend5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    file_id, file_name, file_path, file_type, base_data, uniqueness_id, user_no, is_delete, 
+    create_time, update_time, update_user_no, update_user_name, extend1, extend2, extend3, 
+    extend4, extend5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from oa_attendance_file
+    where file_id = #{fileId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from oa_attendance_file
+    where file_id = #{fileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huijianzhu.attendance.entity.OaAttendanceFile">
+    insert into oa_attendance_file (file_id, file_name, file_path, 
+      file_type, base_data, uniqueness_id, 
+      user_no, is_delete, create_time, 
+      update_time, update_user_no, update_user_name, 
+      extend1, extend2, extend3, 
+      extend4, extend5)
+    values (#{fileId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
+      #{fileType,jdbcType=VARCHAR}, #{baseData,jdbcType=VARCHAR}, #{uniquenessId,jdbcType=VARCHAR}, 
+      #{userNo,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateUserNo,jdbcType=VARCHAR}, #{updateUserName,jdbcType=VARCHAR}, 
+      #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, #{extend3,jdbcType=VARCHAR}, 
+      #{extend4,jdbcType=VARCHAR}, #{extend5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huijianzhu.attendance.entity.OaAttendanceFile">
+    insert into oa_attendance_file
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        file_id,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="filePath != null">
+        file_path,
+      </if>
+      <if test="fileType != null">
+        file_type,
+      </if>
+      <if test="baseData != null">
+        base_data,
+      </if>
+      <if test="uniquenessId != null">
+        uniqueness_id,
+      </if>
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="extend1 != null">
+        extend1,
+      </if>
+      <if test="extend2 != null">
+        extend2,
+      </if>
+      <if test="extend3 != null">
+        extend3,
+      </if>
+      <if test="extend4 != null">
+        extend4,
+      </if>
+      <if test="extend5 != null">
+        extend5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null">
+        #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="baseData != null">
+        #{baseData,jdbcType=VARCHAR},
+      </if>
+      <if test="uniquenessId != null">
+        #{uniquenessId,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        #{extend5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huijianzhu.attendance.entity.OaAttendanceFile">
+    update oa_attendance_file
+    <set>
+      <if test="fileName != null">
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="filePath != null">
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileType != null">
+        file_type = #{fileType,jdbcType=VARCHAR},
+      </if>
+      <if test="baseData != null">
+        base_data = #{baseData,jdbcType=VARCHAR},
+      </if>
+      <if test="uniquenessId != null">
+        uniqueness_id = #{uniquenessId,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserNo != null">
+        update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        extend1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        extend2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null">
+        extend3 = #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null">
+        extend4 = #{extend4,jdbcType=VARCHAR},
+      </if>
+      <if test="extend5 != null">
+        extend5 = #{extend5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where file_id = #{fileId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huijianzhu.attendance.entity.OaAttendanceFile">
+    update oa_attendance_file
+    set file_name = #{fileName,jdbcType=VARCHAR},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      file_type = #{fileType,jdbcType=VARCHAR},
+      base_data = #{baseData,jdbcType=VARCHAR},
+      uniqueness_id = #{uniquenessId,jdbcType=VARCHAR},
+      user_no = #{userNo,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user_no = #{updateUserNo,jdbcType=VARCHAR},
+      update_user_name = #{updateUserName,jdbcType=VARCHAR},
+      extend1 = #{extend1,jdbcType=VARCHAR},
+      extend2 = #{extend2,jdbcType=VARCHAR},
+      extend3 = #{extend3,jdbcType=VARCHAR},
+      extend4 = #{extend4,jdbcType=VARCHAR},
+      extend5 = #{extend5,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=VARCHAR}
+  </update>
+</mapper>
